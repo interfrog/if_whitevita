@@ -28,7 +28,7 @@ $EM_CONF[$_EXTKEY] = array(
 			'gridelements' => '7.0.0-7.99.99',
 			'powermail' => '3.8.0-3.99.99',
 			'realurl' => '2.2.0-2.99.99',
-			'if_themeconfiguration' => '1.0.0-1.0.0',
+			'if_themeconfiguration' => '1.0.0-1.99.99',
 		),
 		'conflicts' => array(
 			'fluid_styled_content' => ''
