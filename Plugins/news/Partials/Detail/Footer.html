@@ -1,0 +1,27 @@
+{namespace n=GeorgRinger\News\ViewHelpers}
+
+<footer>
+
+	<f:if condition="{settings.detail.showSocialShareButtons}">
+		<div class="facebook">
+			<div class="like">
+				<n:social.facebook.like />
+			</div>
+			<div class="share">
+				<n:social.facebook.share />
+			</div>
+			<div class="twitter">
+				<n:social.twitter>Twitter</n:social.twitter>
+			</div>
+		</div>
+	</f:if>
+
+	<f:if condition="{settings.detail.disqusShortname}">
+		<n:social.disqus newsItem="{newsItem}"
+						 shortName="{settings.detail.disqusShortname}"
+						 link="{n:link(newsItem:newsItem, settings:settings, uriOnly:1, configuration:'{forceAbsoluteUrl:1}')}" />
+	</f:if>
+
+	<f:render partial="Detail/Additional" arguments="{newsItem: newsItem, settings:settings}" />
+
+</footer>

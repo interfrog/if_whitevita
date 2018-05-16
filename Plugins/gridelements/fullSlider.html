@@ -1,0 +1,73 @@
+<div class="fullScreenSliderWrap{f:if(condition:'{data.flexform_fullscreen}>0',then:' fullScreen')}">
+    <f:if condition="{data.flexform_showLogo}">
+        <f:then>
+            <div class="container" id="sliderLogoContainer">
+                <div class="innerWrap">
+                    <div class="logoBox">
+                        <f:cObject typoscriptObjectPath="lib.site.logo" />
+                    </div>
+                </div>
+            </div>
+        </f:then>
+    </f:if>
+    <div class="fullScreenSlider slickSlider" data-autoplay="{data.flexform_autoplay}" data-autospeed="{f:if(condition:'{data.flexform_autoplaySpeed}>0',then:'{data.flexform_autoplaySpeed}',else:'6400')}" data-slideSpeed="{f:if(condition:'{data.flexform_autoplaySpeed}>0',then:'{data.flexform_slideSpeed}',else:'300')}">
+        <f:for each="{data.tx_gridelements_view_raw_columns}" as="column">
+            <f:for each="{column}" as="slideElement">
+                <f:if condition="{slideElement.header_link}">
+                    <f:then>
+                        <f:link.page class="slideItem" pageUid="{slideElement.header_link}">
+                            <div class="innerImage" style="background-image: url('{f:cObject(typoscriptObjectPath:'lib.fluidobjects.backgroundResource',data:'{slideElement.uid}')}')">
+                                <f:if condition="{slideElement.header}">
+                                    <div class="innerWrap">
+                                        <div class="textBox">
+                                            <f:switch expression="{slideElement.header_layout}">
+                                                <f:case value="2">
+                                                    <h3>{slideElement.header}</h3>
+                                                </f:case>
+                                                <f:case value="3">
+                                                    <h4>{slideElement.header}</h4>
+                                                </f:case>
+                                                <f:case value="4">
+                                                    <h5>{slideElement.header}</h5>
+                                                </f:case>
+                                                <f:case default="TRUE">
+                                                    <h2>{slideElement.header}</h2>
+                                                </f:case>
+                                            </f:switch>
+                                            <f:format.html parseFuncTSPath="lib.parseFunc_RTE">{slideElement.bodytext}</f:format.html>
+                                        </div>
+                                    </div>
+                                </f:if>
+                            </div>     
+                        </f:link.page>
+                    </f:then>
+                    <f:else>
+                        <div class="slideItem" style="background-image: url('{f:cObject(typoscriptObjectPath:'lib.fluidobjects.backgroundResource',data:'{slideElement.uid}')}')">
+                            <f:if condition="{slideElement.header}">
+                                <div class="innerWrap">
+                                    <div class="textBox">
+                                        <f:switch expression="{slideElement.header_layout}">
+                                            <f:case value="2">
+                                                <h3>{slideElement.header}</h3>
+                                            </f:case>
+                                            <f:case value="3">
+                                                <h4>{slideElement.header}</h4>
+                                            </f:case>
+                                            <f:case value="4">
+                                                <h5>{slideElement.header}</h5>
+                                            </f:case>
+                                            <f:case default="TRUE">
+                                                <h2>{slideElement.header}</h2>
+                                            </f:case>
+                                        </f:switch>
+                                        <f:format.html parseFuncTSPath="lib.parseFunc_RTE">{slideElement.bodytext}</f:format.html>
+                                    </div>
+                                </div>
+                            </f:if>
+                        </div>     
+                    </f:else>
+                </f:if>
+            </f:for>
+        </f:for>
+    </div>
+</div>

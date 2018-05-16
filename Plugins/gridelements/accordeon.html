@@ -1,0 +1,18 @@
+<f:format.html parseFuncTSPath="">{header}</f:format.html>
+<div class="accordeonWrapper">
+    <f:for each="{data.tx_gridelements_view_children}" as="foldoutElement" iteration="index">
+        <div class="item">
+            <h3 class="opener" data-status="{f:if(condition:'{index.isFirst}',then:'open',else:'close')}">
+                {foldoutElement.header}
+                <span class="status">
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 197.402 197.402" style="enable-background:new 0 0 197.402 197.402;" xml:space="preserve">
+                        <polygon style="fill:#010002;" points="146.883,197.402 45.255,98.698 146.883,0 152.148,5.418 56.109,98.698 152.148,191.98"/>
+                    </svg>
+                </span>
+            </h3>
+            <div class="foldout" style="{f:if(condition:'{index.isFirst}',then:'display:block;',else:'display:none;')}">
+                <f:cObject typoscriptObjectPath="lib.fluidobjects.record" data="{foldoutElement.uid}"></f:cObject>
+            </div>
+        </div>
+    </f:for>
+</div>

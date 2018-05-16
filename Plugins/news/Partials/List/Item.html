@@ -1,0 +1,64 @@
+{namespace n=GeorgRinger\News\ViewHelpers}
+<div class="article articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}" itemscope="itemscope" itemtype="http://schema.org/Article">
+	<n:excludeDisplayedNews newsItem="{newsItem}"/>
+	<div class="header">
+		<h3>
+			<n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+				<span itemprop="headline">{newsItem.title}</span>
+			</n:link>
+		</h3>
+		<p>
+			<span class="news-list-date">
+				<time datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
+					<f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
+					<meta itemprop="datePublished" content="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}" />
+				</time>
+			</span>
+
+			<f:if condition="{newsItem.firstCategory}">
+				<span class="news-list-category">{newsItem.firstCategory.title}</span>
+			</f:if>
+
+			<f:if condition="{newsItem.tags}">
+				<span class="news-list-tags" itemprop="keywords">
+					<f:for each="{newsItem.tags}" as="tag">
+						{tag.title}
+					</f:for>
+				</span>
+			</f:if>
+
+			<f:if condition="{newsItem.author}">
+				<span class="news-list-author">
+					<f:translate key="author_simple" />: <span itemprop="name">{newsItem.author}</span>
+				</span>
+			</f:if>
+		</p>
+	</div>
+
+	<f:if condition="{newsItem.falMedia.0}">
+		<f:then>
+			<f:if condition="{newsItem.falMedia.0.originalResource.type} == 2">
+				<f:then>
+					<f:image image="{newsItem.falMedia.0}" title="{newsItem.falMedia.0.title}" alt="{newsItem.falMedia.0.alternative}" maxWidth="{settings.list.media.image.maxWidth}" maxHeight="{settings.list.media.image.maxHeight}" />
+				</f:then>
+			</f:if>
+		</f:then>
+	</f:if>
+
+	<div class="teaser-text">
+		<f:if condition="{newsItem.teaser}">
+			<f:then>
+				<span itemprop="description">{newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}</span>
+			</f:then>
+			<f:else>
+				<span itemprop="description">{newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}</span>
+			</f:else>
+		</f:if>
+
+		<n:link newsItem="{newsItem}" settings="{settings}" class="more" title="{newsItem.title}">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="imgView" x="0px" y="0px" width="14" height="14" viewBox="0 0 68.087 68.087" style="display: inline-block;" xml:space="preserve" class="detail convertSvgInline replaced-svg" data-id="21113" data-kw="fast forward button1" fill="#000000">
+	<path d="M33.869,59.737c-0.35,0-0.7-0.157-0.93-0.463c-0.388-0.514-0.288-1.243,0.227-1.634l31.066-23.598L33.163,10.447   c-0.513-0.39-0.614-1.121-0.226-1.634c0.393-0.517,1.122-0.615,1.637-0.225l33.513,25.456L34.576,59.5   C34.364,59.659,34.114,59.737,33.869,59.737z M1.875,59.5l33.511-25.457L1.875,8.587C1.359,8.197,0.63,8.296,0.238,8.812   c-0.388,0.513-0.288,1.244,0.227,1.634l31.066,23.596L0.461,57.641c-0.513,0.391-0.613,1.12-0.226,1.634   c0.234,0.306,0.582,0.463,0.932,0.463C1.413,59.737,1.663,59.659,1.875,59.5z" style="" fill="#000000"></path>
+</svg><f:translate key="more-link"/>
+		</n:link>
+	</div>
+</div>

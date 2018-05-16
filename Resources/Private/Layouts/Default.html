@@ -1,0 +1,96 @@
+<div id="siteWrapper" data-status="close">
+    <div id="siteCanvas">
+        <f:render section="pageheader" />
+        <section class="row" id="page" title="{sectionTitle}">
+            <f:switch expression="{backendLayout}">
+                <f:case value="2-Col-Header-right">
+                    <f:render section="mainheader" />
+                    <div class="innerWrap">
+                        <nav class="breadcrumb">
+                            <f:render section="breadCrumb" />
+                        </nav>
+                        <div class="regularColSet" data-cols="2" data-split="6633">
+                            <div class="col" id="maincontent">
+                                <f:render section="mainContent" />
+                            </div>
+                            <div class="col" id="asideContent">
+                                <f:render section="asideContent" />
+                            </div>
+                        </div>
+                    </div>
+                </f:case>
+                <f:case value="2-Col-Header">
+                    <f:render section="mainheader" />
+                    <div class="innerWrap">
+                        <nav class="breadcrumb">
+                            <f:render section="breadCrumb" />
+                        </nav>
+                        <div class="regularColSet" data-cols="2" data-split="3366">
+                            <div class="col" id="asideContent">
+                                <f:render section="asideContent" />
+                            </div>
+                            <div class="col" id="maincontent">
+                                <f:render section="mainContent" />
+                            </div>
+                        </div>
+                    </div>
+                </f:case>
+                <f:case value="2-Col-right">
+                    <div class="innerWrap">
+                        <nav class="breadcrumb">
+                            <f:render section="breadCrumb" />
+                        </nav>
+                        <div class="regularColSet" data-cols="2" data-split="6633">
+                            <div class="col" id="maincontent">
+                                <f:render section="mainContent" />
+                            </div>
+                            <div class="col" id="asideContent">
+                                <f:render section="asideContent" />
+                            </div>
+                        </div>
+                    </div>
+                </f:case>
+                <f:case value="2-Col">
+                    <div class="innerWrap">
+                        <nav class="breadcrumb">
+                            <f:render section="breadCrumb" />
+                        </nav>
+                        <div class="regularColSet" data-cols="2" data-split="3366">
+                            <div class="col" id="asideContent">
+                                <f:render section="asideContent" />
+                            </div>
+                            <div class="col" id="maincontent">
+                                <f:render section="mainContent" />
+                            </div>
+                        </div>
+                    </div>
+                </f:case>
+                <f:case value="1-Col-Header">
+                    <f:render section="mainheader" />
+                    <div class="innerWrap">
+                        <div class="breadcrumb">
+                            <f:render section="breadCrumb" />
+                        </div>
+                        <div id="maincontent">
+                            <f:render section="mainContent" />
+                        </div>
+                    </div>
+                </f:case>
+                <f:case default="TRUE">
+                    <div class="innerWrap">
+                        <div class="breadcrumb">
+                            <f:render section="breadCrumb" />
+                        </div>
+                        <div id="maincontent">
+                            <f:render section="mainContent" />
+                        </div>
+                    </div>
+                </f:case>
+            </f:switch>
+            <div class="innerWrap">
+                <f:render partial="Socials" arguments="{_all}" />
+            </div>
+        </section>
+        <f:render section="pagefooter" />
+    </div>
+</div>

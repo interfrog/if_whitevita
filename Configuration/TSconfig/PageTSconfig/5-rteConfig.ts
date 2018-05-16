@@ -1,0 +1,1 @@
+RTE.default.buttons.link.properties.class.allowedClasses := addToList(orange-button,download-button)

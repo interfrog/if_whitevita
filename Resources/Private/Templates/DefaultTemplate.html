@@ -1,0 +1,129 @@
+<f:layout name="Default" />
+<f:section name="pageheader">
+	<header id="pageheader">
+		<div class="legalMenuWrap row">
+			<div class="innerWrap">
+				<f:format.raw>{legalMenu}</f:format.raw>
+		  	</div>
+		</div>
+		<div class="header row">
+			<div class="innerWrap">
+				<f:if condition="{themeconfig.0.avatar.0}">
+					<f:then>
+						<div class="avatar" data-rounded="{f:if(condition:themeconfig.0.data.roundedcorner,then:'true',else:'false')}">
+							<f:link.page pageUid="{rootPageUid}">
+								<f:image src="{themeconfig.0.avatar.0.uid}" treatIdAsReference="1" width="{themeconfig.0.data.avatarwidth}" height="{themeconfig.0.data.avatarheight}" />
+							</f:link.page>
+						</div>
+					</f:then>
+				</f:if>
+				<div id="pagetitle">
+					<f:format.raw>{pagetitle}</f:format.raw>
+				</div>
+				<a href="#" class="mobileMenuTrigger offCanvasOpener" data-action="open"><span class="label">Menü</span> <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="imgView" x="0px" y="0px" width="256" height="256" viewBox="0 0 612 612" style="enable-background:new 0 0 612 612;" xml:space="preserve" class="detail convertSvgInline replaced-svg" data-id="59660" data-kw="menu53">
+	<path d="M0,95.625v38.25h612v-38.25H0z M0,325.125h612v-38.25H0V325.125z M0,516.375h612v-38.25H0V516.375z"></path>
+</svg></span></a>
+			</div>
+		</div>
+        <nav class="mainmenu row">
+            <div class="innerWrap">
+                <f:format.raw>{mainMenu}</f:format.raw>
+                <span class="slidebar"></span>
+				<f:format.raw>{socialMenu}</f:format.raw>
+            </div>
+        </nav>
+	</header>
+    <div class="offCanvasMenu">                  
+        <a href="#" class="mobileMenuTrigger offCanvasCloser" data-action="close"><span class="label">Schließen</span> <span class="icon"><svg data-kw="cross31" data-id="22108" height="256" width="256" class="detail convertSvgInline replaced-svg" xml:space="preserve" style="enable-background:new 0 0 224.512 224.512;" viewBox="0 0 224.512 224.512" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" id="imgView" version="1.1">
+	<polygon points="224.507,6.997 217.521,0 112.256,105.258 6.998,0 0.005,6.997 105.263,112.254    0.005,217.512 6.998,224.512 112.256,119.24 217.521,224.512 224.507,217.512 119.249,112.254  "></polygon>
+</svg></span></a>
+        <f:format.raw>{offCanvas}</f:format.raw>
+        <hr>
+        <f:format.raw>{socialMenu}</f:format.raw>
+    </div>
+</f:section>
+
+<f:section name="mainheader">
+	<div class="headSection">
+		<f:format.raw>
+			{headerContent}
+		</f:format.raw>
+	</div>
+</f:section>
+<f:section name="breadCrumb">
+	<f:format.raw>
+		{breadcrumb}
+	</f:format.raw>
+</f:section>
+
+<f:section name="mainContent">
+	<f:format.raw>
+		{mainContent}
+	</f:format.raw>
+</f:section>
+
+<f:section name="asideContent">
+	<f:format.raw>
+		{asideContent}
+	</f:format.raw>
+</f:section>
+
+<f:section name="pagefooter">
+	<footer id="pagefooter" class="row">
+		<div class="innerWrap">
+			<div class="regularColSet" data-cols="3">
+				<div class="col">
+					<f:format.raw>{footerContent}</f:format.raw>
+				</div>
+				<div class="col">
+					<f:if condition="{themeconfig.0.footeravatar.0}">
+						<f:then>
+							<div class="avatar" data-rounded="{f:if(condition:themeconfig.0.data.roundedcorner,then:'true',else:'false')}">
+								<f:link.page pageUid="{rootPageUid}">
+									<f:image src="{themeconfig.0.footeravatar.0.uid}" treatIdAsReference="1" width="{themeconfig.0.data.avatarwidth}" height="{themeconfig.0.data.avatarheight}" />
+								</f:link.page>
+							</div>
+						</f:then>
+						<f:else>
+							<f:if condition="{themeconfig.0.avatar.0}">
+								<f:then>
+									<div class="avatar" data-rounded="{f:if(condition:themeconfig.0.data.roundedcorner,then:'true',else:'false')}">
+										<f:link.page pageUid="{rootPageUid}">
+											<f:image src="{themeconfig.0.avatar.0.uid}" treatIdAsReference="1" width="{themeconfig.0.data.avatarwidth}" height="{themeconfig.0.data.avatarheight}" />
+										</f:link.page>
+									</div>
+								</f:then>
+							</f:if>
+						</f:else>
+					</f:if>
+					<f:format.raw>{pagetitle}</f:format.raw>
+				</div>
+				<div class="col">
+					<f:format.raw>{socialMenu}</f:format.raw>
+				</div>
+			</div>
+			<div class="copyrightWrap">
+				<p class="copyright"><a href="https://www.ifpage.de" title="Alle ifPage Themes ansehen" target="_blank">&copy; {year} ifPage Theme "White Vita"</a> | <span class="typo3">empowered by <a href="http://www.typo3.org"><svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="291.235px" height="80.897px" viewBox="0 0 291.235 80.897" enable-background="new 0 0 291.235 80.897"
+	 xml:space="preserve" id="typo3logo">
+<path fill="#FFFFFF" d="M116.523,27.269V80.3h-7.394V27.269H96.041v-6.461h33.57v6.461H116.523z M156.188,52.68V80.3h-7.649V52.68
+	l-15.212-31.872h8.157l11.219,24.052l11.219-24.052h7.733L156.188,52.68z M194.601,57.863h-7.139V80.3h-7.394V20.808
+	c0,0,7.309-0.594,14.362-0.594c12.919,0,16.66,7.988,16.66,18.442C211.091,51.575,206.67,57.863,194.601,57.863 M195.451,26.333
+	c-4.676,0-7.989,0.509-7.989,0.509v24.817h7.989c4.759,0,8.074-3.146,8.074-12.409C203.525,30.75,201.485,26.333,195.451,26.333
+	 M237.779,80.896c-14.023,0-17.765-10.199-17.765-31.021c0-19.975,3.741-29.663,17.765-29.663s17.762,9.688,17.762,29.663
+	C255.541,70.697,251.803,80.896,237.779,80.896 M237.779,26.417c-7.647,0-10.199,5.187-10.199,23.883
+	c0,18.273,2.552,24.393,10.199,24.393c7.648,0,10.199-6.119,10.199-24.393C247.979,31.604,245.428,26.417,237.779,26.417
+	 M276.873,80.896c-4.164,0-10.369-1.274-11.134-1.448v-6.201c2.041,0.424,7.308,1.303,11.05,1.303c4.333,0,7.138-3.685,7.138-10.227
+	c0-7.734-1.272-11.814-7.308-11.814h-6.97v-6.203h6.119c6.886,0,7.224-7.055,7.224-10.454c0-6.716-2.125-9.435-6.373-9.435
+	c-3.74,0-7.991,0.935-10.455,1.445v-6.203c0.936-0.171,5.951-1.445,10.284-1.445c8.755,0,13.769,3.739,13.769,16.404
+	c0,5.779-2.041,10.877-6.545,12.493c5.184,0.339,7.563,6.033,7.563,14.363C291.235,76.137,286.308,80.896,276.873,80.896"/>
+<path fill="#FFFFFF" d="M60.418,55.751c-1.201,0.354-2.158,0.476-3.41,0.476c-10.272,0-25.36-35.896-25.36-47.843
+	c0-4.401,1.045-5.868,2.514-7.125C21.588,2.725,6.498,7.336,1.676,13.205C0.629,14.672,0,16.978,0,19.911
+	c0,18.654,19.91,60.987,33.953,60.987C40.449,80.897,51.406,70.21,60.418,55.751"/>
+<path fill="#FFFFFF" d="M53.861,0c12.994,0,25.99,2.096,25.99,9.431c0,14.881-9.431,32.905-14.252,32.905
+	c-8.592,0-19.281-23.891-19.281-35.838C46.318,1.049,48.415,0,53.861,0"/>
+</svg></a></span></p>
+			</div>
+		</div>
+	</footer>
+</f:section>

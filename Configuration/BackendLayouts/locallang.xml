@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for backend layouts</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="Default">Standard (1-spaltig)</label>
+			<label index="1-Col-Header">1-spaltig mit Kopfbereich</label>
+			<label index="2-Col">2-spaltig (Aside links)</label>
+			<label index="2-Col-Header">2-spaltig mit Kopfbereich (Aside links)</label>
+			<label index="2-Col-right">2-spaltig (Aside rechts)</label>
+			<label index="2-Col-Header-right">2-spaltig mit Kopfbereich (Aside rechts)</label>
+		</languageKey>
+	</data>
+</T3locallang>
